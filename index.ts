@@ -11,11 +11,7 @@ const agent = createHttpsProxyAgent(
   `http://${PROXY_USER}:${PROXY_PASSWORD}@${PROXY_HOST}:${PROXY_PORT}`,
 );
 
-async function main() {
-  const response = await fetch("https://api.db-ip.com/v2/free/self", { agent });
+const response = await fetch("https://api.db-ip.com/v2/free/self", { agent });
+const data = await response.json();
 
-  const data = await response.json();
-  console.log(data);
-}
-
-main().catch(console.error);
+console.log(data);
